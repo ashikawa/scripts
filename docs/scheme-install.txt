@@ -1,0 +1,20 @@
+#http://d.hatena.ne.jp/mercysluck/20090622
+
+
+yum install rpm-build gcc gdbm gdbm-devel
+
+wget http://prdownloads.sourceforge.net/gauche/Gauche-0.8.14.tgz
+rpmbuild -ta Gauche-0.8.14.tgz
+rpm -ivh /usr/src/redhat/RPMS/i386/Gauche-*.rpm
+
+
+
+# slib install
+cd /usr/local/src/
+wget http://groups.csail.mit.edu/mac/ftpdir/scm/slib-3b2-1.noarch.rpm
+rpm -ivm slib-3b2-1.noarch.rpm
+cd /usr/local/
+ln -s /usr/share/slib slib
+
+
+

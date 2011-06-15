@@ -1,0 +1,11 @@
+#http://labs.unoh.net/2008/01/keyword-autolink-using-php-and-mecab.html
+
+wget http://www.opendogs.org/pub/php_mecab-0.3.0.tgz
+tar xzvf php_mecab-0.3.0.tgz
+cd php_mecab-0.3.0
+/usr/bin/phpize
+./configure --with-php-config=/usr/bin/php-config --with-mecab=/usr/local/bin/mecab-config
+make
+make test
+make install
+

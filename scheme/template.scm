@@ -1,0 +1,2 @@
+(load "./inc/std.scm")
+

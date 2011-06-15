@@ -1,0 +1,15 @@
+yum -y install mysql-server
+
+// インストール済みだった
+
+
+#vi /etc/my.cnf
+[mysqld]
+default-character-set = utf8　←　追追加
+
+[mysql]
+default-character-set = utf8 ←　追加
+
+
+/etc/rc.d/init.d/mysqld start
+chkconfig mysqld on

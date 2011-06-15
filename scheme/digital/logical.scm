@@ -1,0 +1,35 @@
+(define (logical-not s)
+   (cond ((= s 0) 1)
+      ((= s 1) 0)
+      (else (error "invalid signal" s))))
+
+(define (logical-and a1 a2)
+  (cond ((and (= a1 1) (= a2 1))
+         1)
+        ((or (and (= a1 0) (= a2 1))
+             (and (= a1 1) (= a2 0))
+             (and (= a1 0) (= a2 0)))
+         0)
+        (else (error "Invalid signal" a1 a2))))
+(define (logical-or a1 a2)
+  (cond ((and (= a1 0) (= a2 0))
+         0)
+        ((or (and (= a1 0) (= a2 1))
+             (and (= a1 1) (= a2 0))
+             (and (= a1 1) (= a2 1)))
+         1)
+        (else (error "Invalid signal" a1 a2))))
+
+
+
+;;test method
+
+(define (logical-test method)
+	(display (method 0 0))
+	(newline)
+	(display (method 0 1))
+	(newline)
+	(display (method 1 0))
+	(newline)
+	(display (method 1 1))
+	(newline))

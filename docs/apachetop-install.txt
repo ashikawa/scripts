@@ -1,0 +1,8 @@
+http://d.hatena.ne.jp/heiwaboke/20090418/1239988496
+
+cd /lib
+ln -s /usr/lib/libreadline.so.5.1 ./libreadline.so.4
+cd /usr/local/src
+wget http://centos.karan.org/el4/extras/stable/i386/RPMS/apachetop-0.12.5-2.el4.kb.i386.rpm
+rpm -ivh --nodeps apachetop-0.12.5-2.el4.kb.i386.rpm
+

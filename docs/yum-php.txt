@@ -1,0 +1,30 @@
+http://it.kndb.jp/entry/show/id/2463
+
+
+# rpm --import http://www.jasonlitka.com/media/RPM-GPG-KEY-jlitka
+
+/etc/yum.repos.d/utterramblings.repoを作成してにリポジトリ参照の設定を書き込む。
+
+[utterramblings]
+name=Jason's Utter Ramblings Repo
+baseurl=http://www.jasonlitka.com/media/EL$releasever/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=http://www.jasonlitka.com/media/RPM-GPG-KEY-jlitka
+
+
+yum経由でPHPをアップデートする。
+# yum update php
+/etc/yum.repos.d/utterramblings.repoを編集してyumの自動アップデートで設定が利用されないようにしておく。
+enabled=1
+↓
+enabled=0
+
+
+ついでにfileinfo
+# pecl install fileinfo
+
+読み込ませる
+$ sudo vi /etc/php.d/fileinfo.ini
+
+extension=fileinfo.so
