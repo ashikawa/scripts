@@ -29,8 +29,8 @@ fi
 
 mkdir $project \
 && svnadmin create $project \
-&& chmod g+s $project \
-&& chmod 770 $project \
-&& chown -R svn:svn $project
+&& chmod -R 770 $project \
+&& chown -R svn:svn $project \
+&& chmod -R g+s $project
 
 exit 0
