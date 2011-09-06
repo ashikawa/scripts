@@ -1,4 +1,11 @@
 <?php 
+/**
+ * ApacheKiller の対策がされているか確認するコード
+ * アドバイザリが適応されているか確認する物であって、Apache本体のパッチを確認する物ではない。
+ * 
+ * @see http://mail-archives.apache.org/mod_mbox/httpd-announce/201108.mbox/%3C20110826103531.998348F82@minotaur.apache.org%3E
+ */
+
 define("REQUEST_URL", "http://budori.ashikawa.vm/js/jquery.js");
 
 function test_apache( $host ){
