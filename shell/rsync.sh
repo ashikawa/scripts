@@ -1,26 +1,33 @@
 #!/bin/sh
 #
-# rsync script for mac
+# rsync script for mac 
 #
 
-options="-avn"
+options="-avnR"
 
 while getopts f OPT 
 do
     case $OPT in
         "f")
-            options="-av"
+            options="-avR"
             shift
             continue;;
     esac
 done
 
-rsync $options \
+cd ../www/
+
+rsync -e "ssh -i secret.key" \
+	$options \
    --exclude ".svn/" \
    --exclude ".DS_Store" \
    --exclude ".settings/" \
    --exclude ".project" \
+   --exclude ".buildpath" \
+   --exclude ".htaccess" \
+   --exclude "Thumbs.db" \
+   --exclude "data/log" \
+   --exclude "data/cache" \
    --delete \
-   from/* \
-   user@domains:/projectdir/
-   
+	* \
+   user@domain:/path/to/dir/
