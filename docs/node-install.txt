@@ -1,0 +1,42 @@
+# 必要モジュールのインストール
+
+yum install git
+yum install openssl-devel
+yum install gcc-c++
+yum install make
+
+git clone git://github.com/creationix/nvm.git ~/.nvm
+. ~/.nvm/nvm.sh
+
+
+# ここは最新の安定板を調べる
+nvm install v0.6.18
+nvm ls
+node --version
+nvm alias default v0.6.18
+
+
+# .bash_profile に追記
+
+. ~/.nvm/nvm.sh
+export NODE_PATH="$NVM_DIR/$VERSION/lib/node_modules"
+
+
+
+# アプリのインストール
+
+npm install websocket-server -g
+npm install opt -g
+npm install opts -g
+
+git clone git://github.com/m-s-modified/Yamaneko.git
+
+
+
+# daemon 化
+
+npm install forever -g
+
+forever start [SCRIPT.js] &
+
+disown [プロセスID]
