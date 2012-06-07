@@ -1,0 +1,35 @@
+# サーバー立てた時に最初に何も考えずにやっておく事のメモ
+
+
+#とりあえず update
+yum update
+
+
+# httpd
+yum install httpd
+chkconfig httpd on
+/etc/init.d/httpd start
+
+
+# PHPで必要そうな物
+yum install php php-devel php-mysql php-mbstring php-pear php-xml
+
+
+# 画像処理したい人
+yum install gd php-gd
+
+
+# 気の利いたプログラマなら入れておく物
+yum install gcc gcc-c++ make openssl-devel git subversion
+
+
+
+# 安全のために
+vi .bashrc
+
+	alias rm='rm -i'
+	alias cp='cp -i'
+	alias mv='mv -i'
+	alias ll='ls -lh'
+
+source .bash
