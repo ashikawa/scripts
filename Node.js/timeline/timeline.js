@@ -15,7 +15,7 @@
             var line = "";
 
             if (e.startTime && e.usedHeapSize) {
-                line = e.startTime + ', ' + e.usedHeapSize + '\n';
+                line = [e.startTime, e.usedHeapSize].join('\t') + '\n';
                 process.stdout.write(line);
             }
 
