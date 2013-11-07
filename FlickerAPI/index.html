@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="My HTML5 Template">
+	<meta name="author" content="s.ashikawa">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<title>Flicker Demo</title>
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	<link rel="stylesheet" href="./css/reset.css?v=1.0">
+	<link rel="stylesheet/less" type="text/css" href="./less/style.less" />
+</head>
+<body>
+
+<article>
+	<h1>Flicker Demo</h1>
+	<section>
+		<ul id="image_list_container">
+<script id="image_list_tmpl" type="text/x-jquery-tmpl">
+			<li style="float:left;">
+				<a href="http://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg" target="_blank"><img src="http://farm${farm}.staticflickr.com/${server}/${id}_${secret}_q.jpg"></a>
+			</li>
+</script>
+		</ul>
+	</section>
+</article>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="./js/less.js"></script>
+<script src="./js/jquery.tmpl.min.js"></script>
+<script src="./js/src/main.js"></script>
+</body>
+</html>
