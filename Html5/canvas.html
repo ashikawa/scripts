@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="author" content="s.ashikawa" />
+	<meta name="robots" content="index,follow" />
+	<link href="/Html5/style/reset.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="/Html5/style/layout.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="/Html5/style/common.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="/Html5/style/portal.css" media="screen" rel="stylesheet" type="text/css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="/Html5/js/canvas/CanvasFilter.js"></script>
+	<script src="/Html5/js/canvas/controller.js"></script>
+	<title>canvas test</title>
+</head>
+<body>
+
+	<div id="header">
+		
+		<h1><a href="/Canvas/">canvas test</a></h1>
+		
+	</div>
+	
+	<div id="middle">
+		<div id="main">
+
+
+
+<div class="contents">
+	<h3 class="title">canvas</h3>
+	
+	<canvas id="myCanvas" width="450" height="450" style="border:1px dotted;"></canvas>
+	
+	<input type="text" id="imageUrl" value="/Html5/img/01.jpg" />
+	
+	<input type="button" value="load" id="loadImage" />
+	
+	<div id="uploadArea">
+		<input id="uploadFile" name="image" type="file" />
+	</div>
+	
+	<input type="submit" value="filter" id="filterImage" />
+	<input type="submit" value="saveFile" id="saveFile" />
+	<input type="submit" value="saveServer" id="saveServer" />
+</div>
+
+		</div>
+		
+		<div id="sidebar">
+			<div class="contents">
+				top<br />
+			</div>
+		</div>
+
+	</div>
+	
+	<div id="footer">
+		<p class="copyright">copy right...</p>
+	</div><!--//end div#footer-->
+</body>
+</html>

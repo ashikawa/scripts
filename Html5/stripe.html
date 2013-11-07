@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html lang="ja" xmlns:og="http://ogp.me/ns#">
+<head>
+	<meta charset=utf-8 />
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="author" content="s.ashikawa" />
+	<meta name="robots" content="index,follow" />
+	<meta name="description" content="fb like test index/page1" />
+	<meta name="keywords" content="keyowrds,index" />
+	<link href="mailto:a.shigeru+s@gmail.com" rev="made" />
+	<link href="/Stripe/style/reset.css" media="screen" rel="stylesheet" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<title>cell | Stripe</title>
+<style type="text/css">
+	#renderArea {
+		width: 500px;
+		height: 500px;
+		overflow: hidden;
+		position: relative;
+		transform: rotate( 30deg );
+		-webkit-transform: rotate( 30deg );
+		-moz-transform: rotate( 30deg );
+	}
+	.stripeParts {
+		position: absolute;
+		width: 0px;
+		height: 50px;
+		background-image: url(/Html5/img/bg.png);
+		background-repeat: no-repeat;
+	}
+
+</style>
+</head>
+<body class="index">
+	<div id="renderArea">
+	</div>
+	<a id="run" href="#">animation</a>
+<script>
+$(function() {
+	
+	var $renderArea		= $("#renderArea")
+		, partsWidth	= 50
+		, partsHeight	= 50
+		, partsXNum		= 10
+		, partsYNum		= 10
+		, partsNum		= partsXNum * partsYNum
+		, i, $parts, x, y;
+	
+	// init parts
+	for( i = 0; i< partsNum; i++ ){
+		
+		x = ( i % partsXNum ) * partsWidth;
+		y = Math.floor(i / partsXNum) * partsHeight;
+		
+		// create elements
+		$parts = $("<div></div>");
+		$parts.addClass("stripeParts")
+				.css({
+					"top": y,
+					"left": x,
+					"background-position": "-" + x + "px -" + y + "px"
+				});
+		
+		// appendArements
+		$renderArea.append( $parts );
+	}
+	
+	
+	// bind vents to animation start
+	var $stripeParts	= $(".stripeParts")
+		, timerIds		= [];
+	
+	$("#run").click( function(e){
+		// init
+		$stripeParts.css({"width": "0px"});
+		
+		
+		$stripeParts.each(function(i, element){
+
+			var x = Math.floor(i / partsXNum)
+				, y = ( i % partsXNum )
+				, $element = $(element);
+			
+			$element.stop();
+			clearInterval( timerIds[i] );
+			
+			timerIds[i] = setTimeout( function() {
+				
+				$element.animate({
+						"width": partsWidth + "px"
+					}, "fast", null,
+					function( e ){});
+			}, 25 * (x + y) );
+		});
+		
+		return false;
+	} );
+});
+</script>
+</body>
+</html>

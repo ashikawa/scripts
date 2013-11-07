@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="author" content="s.ashikawa" />
+	<meta name="robots" content="index,follow" />
+	<link href="/Html5/style/reset.css" media="screen" rel="stylesheet" />
+	<link href="/Html5/style/layout.css" media="screen" rel="stylesheet" />
+	<link href="/Html5/style/common.css" media="screen" rel="stylesheet" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<title>canvas test</title>
+</head>
+<body>
+
+	<div id="header">
+		
+		<h1>local strage test</h1>
+		
+	</div>
+	
+	<div id="middle">
+		<div id="main">
+
+			<div class="contents">
+				<h3 class="title">strage</h3>
+				<p><textarea id="storagetext" cols="30" rows="10"></textarea></p>
+				<p><input id="clearstorage" type="button" value="clear" /></p>
+			</div>
+
+		</div>
+		
+		<div id="sidebar">
+			<div class="contents">
+				top<br />
+			</div>
+		</div>
+
+	</div>
+	
+	<div id="footer">
+		<p class="copyright">copy right...</p>
+	</div><!--//end div#footer-->
+
+<script>
+$(function () {
+
+	var $textarea	= $("#storagetext"),
+		$clear		= $("#clearstorage"),
+		storagekey	= "mytext";
+
+	$textarea.val(localStorage.getItem(storagekey));
+
+	$textarea.change(function () {
+		localStorage.setItem(storagekey, $(this).val());
+	});
+
+	$clear.click(function () {
+		localStorage.clear();
+		$textarea.val("");
+	});
+
+});
+</script>
+</body>
+</html>

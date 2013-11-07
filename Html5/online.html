@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta name="author" content="s.ashikawa" />
+	<meta name="robots" content="index,follow" />
+	<link href="/Html5/style/reset.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="/Html5/style/layout.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="/Html5/style/common.css" media="screen" rel="stylesheet" type="text/css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<title>online test</title>
+</head>
+<body>
+
+	<div id="header">
+		
+		<h1>on line</h1>
+<script type="text/javascript">
+$(function () {
+
+	var $window = $(window);
+
+	setInterval(function () {
+		console.log(navigator.onLine);
+	}, 1000);
+
+
+	window.addEventListener("online", function () {
+		console.log("net work online");
+	});
+
+	window.addEventListener("offline", function () {
+		console.log("net work offline");
+	});
+
+	$window.bind("online", function () {
+		console.log("jQuery net work online");
+	});
+
+	$window.bind("offline", function () {
+		console.log("jQuery net work offline");
+	});
+
+});
+</script>
+
+	</div>
+	
+	<div id="middle">
+		<div id="main">
+
+
+			<div class="contents">
+				<h3 class="title">strage</h3>
+
+			</div>
+
+		</div>
+		
+		<div id="sidebar">
+			<div class="contents">
+				top<br />
+			</div>
+		</div>
+
+	</div>
+	
+	<div id="footer">
+		<p class="copyright">copy right...</p>
+	</div><!--//end div#footer-->
+</body>
+</html>
