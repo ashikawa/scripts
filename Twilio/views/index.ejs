@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>コップのおくりもの</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet/less" type="text/css" href="/less/style.less" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="/">Home</a></li>
+        </ul>
+        <h3 class="text-muted">コップのおくりもの</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>コップのおくりもの</h1>
+        <p>
+          <a id="call" class="btn btn-lg btn-success" href="#">メッセージを録音する</a>
+          <a id="hangup" class="btn btn-lg btn btn-danger" href="#" style="display:none;">録音を終了する</a>
+        </p>
+      </div>
+
+      <div class="row marketing">
+        <ul>
+<% for(var i = 0; i < results.length; i++) { %>
+          <li class="iconbaloon baloon<%= Math.floor(Math.random()*3)+1 %>"><audio src="<%= results[i].recording %>" controls></li>
+<% } %>
+</ul>
+
+      </div>
+    </div>
+<script src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>require(['less']);</script>
+<script>
+var connection = null;
+
+$(function () {
+    Twilio.Device.setup('<%= token %>', {'debug': true});
+
+    $('#call').on('click', function (event) {
+        Twilio.Device.connect();
+        return false;
+    });
+    $('#hangup').on('click', function (event) {
+        console.log(connection);
+        // connection.sendDigits('#');
+        Twilio.Device.disconnectAll();
+        return false;
+    });
+    Twilio.Device.ready(function (device) {
+        // $('#status').text('Ready to start recording');
+    });
+    Twilio.Device.offline(function (device) {
+        // $('#status').text('Offline');
+    });
+    Twilio.Device.error(function (error) {
+        // $('#status').text(error);
+    });
+    Twilio.Device.connect(function (conn) {
+        connection = conn;
+        // $('#status').text('On Air');
+        // $('#status').css('color', 'red');
+        toggleCallStatus();
+    });
+    Twilio.Device.disconnect(function (conn) {
+        // $('#status').html('Recording ended<br/><a href="show_recordings.php">view recording list</a>');
+        // $('#status').css('color', 'black');
+        toggleCallStatus();
+
+        setTimeout(function () {
+          window.location.reload();
+        }, 1500);
+    });
+
+    function toggleCallStatus () {
+        $('#call').toggle();
+        $('#hangup').toggle();
+    }
+});
+</script>
+  </body>
+</html>

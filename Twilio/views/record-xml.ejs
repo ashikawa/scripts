@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- page located at http://example.com/complex_gather.xml -->
+<Response>
+    <Say voice="woman" language="ja-JP">
+        メッセージを録音してください
+    </Say>
+    <Record
+        timeout="60"
+        action="http://ec2-54-238-158-4.ap-northeast-1.compute.amazonaws.com:3000/recordcallback.xml"
+        method="GET"
+        finishOnKey="*"
+        transcribe="false" />
+</Response>
