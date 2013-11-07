@@ -1,0 +1,31 @@
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Location test">
+	<meta name="author" content="s.ashikawa">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+
+	<title>Location Test</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<body>
+	
+	<section class="section1">
+		<p><a href="./motion.html">加速度センサー</a></p>
+		<p><a href="./orient.html">ジャイロ</a></p>
+	</section><!-- .hs1 -->
+
+	<section class="section2">
+	</section><!-- .hs1 -->
+	
+<script>
+$(function (){
+	var img = document.createElement("img");
+	img.src = "http://chart.apis.google.com/chart?chs=150x150&cht=qr&chl="+ encodeURI(document.location);
+	$(".section2").append(img);
+});
+</script>
+</body>
+</html>
