@@ -10,7 +10,7 @@
         out;
 
     if (system.args.length !== 3) {
-        console.log('Usage: loadspeed.js <some URL> <FILE>');
+        console.log('Usage: phantomjs capture.js <some URL> <FILE>');
         phantom.exit();
 
         return;
